@@ -1,0 +1,29 @@
+{
+  "files.watcherExclude": {
+    "**/.repo": true,
+    "**/.bootstrap": true,
+    "**/out": true,
+    "**/.git": true,
+    "**/prebuilts": true,
+    "**/build": true,
+    "**/test": true,
+  },
+  "search.exclude": {
+    "**/*.repo": true,
+    "**/.bootstrap": true,
+    "**/out": true,
+    "**/.git": true,
+    "**/prebuilts": true,
+    "**/build": true,
+    "**/test": true,
+  },
+  "files.exclude": {
+    "**/.repo": true,
+    "**/.bootstrap": true,
+    "**/out": true,
+    "**/.git": true,
+    "**/prebuilts": true,
+    "**/build": true,
+    "**/test": true,
+  }
+}

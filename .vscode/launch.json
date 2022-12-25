@@ -1,0 +1,19 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Remote Debug",
+      "type": "lldb",
+      "request": "attach",
+      "pid": 4969,
+      "program": "/work/android/aosp/aosp/out/soong/.intermediates/frameworks/native/services/surfaceflinger/surfaceflinger/android_x86_64/unstripped/surfaceflinger",
+      "initCommands": [
+        "platform select remote-android",
+        "platform connect connect://emulator-5554:1234"
+      ],
+      "sourceMap": {
+        "frameworks": "${workspaceFolder}/frameworks"
+      }
+    }
+  ]
+}
