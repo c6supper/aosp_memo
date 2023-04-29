@@ -2,11 +2,32 @@
 
 
 - [aosp\_memo](#aosp_memo)
+- [Build previous AOSP (9.0 etc.) on newly OS(Centos or Rockylinux 8 etc.)](#build-previous-aosp-90-etc-on-newly-oscentos-or-rockylinux-8-etc)
+  - [Solving problem like "Assertion \`cnt \< (sizeof (\_nl\_value\_type\_LC\_TIME) / sizeof (\_nl\_value\_type\_LC\_TIME\[0\]))' failed."](#solving-problem-like-assertion-cnt--sizeof-_nl_value_type_lc_time--sizeof-_nl_value_type_lc_time0-failed)
 - [Debug Android Native Service](#debug-android-native-service)
   - [Caveats for AOSP 12 on Centos/Rockylinux](#caveats-for-aosp-12-on-centosrockylinux)
   - [Emulator](#emulator)
   - [VSCode](#vscode)
   - [Other Tips](#other-tips)
+
+
+# Build previous AOSP (9.0 etc.) on newly OS(Centos or Rockylinux 8 etc.)
+
+## Solving problem like "Assertion `cnt < (sizeof (_nl_value_type_LC_TIME) / sizeof (_nl_value_type_LC_TIME[0]))' failed."
+- [Your flex is too old](https://stackoverflow.com/questions/49301627/android-7-1-2-armv7)
+```bash
+# host
+cd prebuilts/misc/linux-x86/flex
+rm flex-2.5.39
+tar zxf flex-2.5.39.tar.gz
+cd flex-2.5.39
+./configure
+make
+mv flex ../
+cd ../
+rm -rf flex-2.5.39
+mv flex flex-2.5.39
+```
 
 # Debug Android Native Service
 
