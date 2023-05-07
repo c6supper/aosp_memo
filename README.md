@@ -2,18 +2,26 @@
 
 
 - [aosp\_memo](#aosp_memo)
-- [Build previous AOSP (9.0 etc.) on newly OS(Centos or Rockylinux 8 etc.)](#build-previous-aosp-90-etc-on-newly-oscentos-or-rockylinux-8-etc)
-  - [Solving problem like "Assertion \`cnt \< (sizeof (\_nl\_value\_type\_LC\_TIME) / sizeof (\_nl\_value\_type\_LC\_TIME\[0\]))' failed."](#solving-problem-like-assertion-cnt--sizeof-_nl_value_type_lc_time--sizeof-_nl_value_type_lc_time0-failed)
+- [AOSP Building issues](#aosp-building-issues)
+  - [Build previous AOSP (9.0 etc.) on newly OS(Centos or Rockylinux 8 etc.)](#build-previous-aosp-90-etc-on-newly-oscentos-or-rockylinux-8-etc)
+    - [Solving problem like "Assertion \`cnt \< (sizeof (\_nl\_value\_type\_LC\_TIME) / sizeof (\_nl\_value\_type\_LC\_TIME\[0\]))' failed."](#solving-problem-like-assertion-cnt--sizeof-_nl_value_type_lc_time--sizeof-_nl_value_type_lc_time0-failed)
+  - [NDK Sysroots](#ndk-sysroots)
 - [Debug Android Native Service](#debug-android-native-service)
   - [Caveats for AOSP 12 on Centos/Rockylinux](#caveats-for-aosp-12-on-centosrockylinux)
   - [Emulator](#emulator)
   - [VSCode](#vscode)
   - [Other Tips](#other-tips)
+- [Kernel](#kernel)
+  - [DEBUG](#debug)
+    - [USB Gadget](#usb-gadget)
+  - [Network](#network)
 
 
-# Build previous AOSP (9.0 etc.) on newly OS(Centos or Rockylinux 8 etc.)
+# AOSP Building issues
 
-## Solving problem like "Assertion `cnt < (sizeof (_nl_value_type_LC_TIME) / sizeof (_nl_value_type_LC_TIME[0]))' failed."
+## Build previous AOSP (9.0 etc.) on newly OS(Centos or Rockylinux 8 etc.)
+
+### Solving problem like "Assertion `cnt < (sizeof (_nl_value_type_LC_TIME) / sizeof (_nl_value_type_LC_TIME[0]))' failed."
 - [Your flex is too old](https://stackoverflow.com/questions/49301627/android-7-1-2-armv7)
 ```bash
 # host
@@ -28,6 +36,9 @@ cd ../
 rm -rf flex-2.5.39
 mv flex flex-2.5.39
 ```
+
+## NDK Sysroots
+- [Hint](https://android.googlesource.com/platform/ndk/+/ndk-r14-release/docs/GeneratingSysroots.md)
 
 # Debug Android Native Service
 
@@ -78,3 +89,19 @@ adb forward tcp:1234 tcp:1234
 
 - [lldb-vscode manual](https://github.com/vadimcn/vscode-lldb/blob/master/MANUAL.md)
 - [GDB to LLDB command map](https://lldb.llvm.org/use/map.html)
+
+
+# Kernel
+
+## DEBUG
+```
+CONFIG_DEBUG_VERBOSE
+```
+
+### USB Gadget
+```
+CONFIG_USB_GADGET_DEBUG
+CONFIG_USB_GADGET_VERBOSE 
+```
+
+## Network
